@@ -17,14 +17,14 @@
         return false;
     }
 }
-  onMount(() => {
-  if(localStorage.getItem("token")){
-    goto("/update");
-  }else{
-    alert("Please login again.")
-    goto("/login");
-  }
-  });
+  // onMount(() => {
+  // if(localStorage.getItem("token")){
+  //   goto("/update");
+  // }else{
+  //   alert("Please login again.")
+  //   goto("/login");
+  // }
+  // });
 </script>
 
 <slot />
