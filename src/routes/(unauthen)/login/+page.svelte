@@ -14,7 +14,7 @@
     async function handleAuthentication() {
         const code = extractCodeFromURL();
         if(localStorage.getItem("token")){
-            window.location.href = "/cat";
+            window.location.href = "/update";
         }
         if (code) {
             try {
@@ -22,7 +22,7 @@
                     code: code
                 });
                 localStorage.setItem("token", response.data.token);
-                window.location.href = "/cat";
+                window.location.href = "/update";
             } catch (error) {
                 console.error('Error during authentication:', error);
                 alert("Login failed!");
