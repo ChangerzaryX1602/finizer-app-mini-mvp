@@ -36,7 +36,7 @@
                 rows[1]["day"] = data.result.four_pillar.day_pillar.earthly_branch.element_name+"("+data.result.four_pillar.day_pillar.earthly_branch.name+")";  // Update rows with fetched data
                 rows[1]["month"] = data.result.four_pillar.month_pillar.earthly_branch.element_name+"("+data.result.four_pillar.month_pillar.earthly_branch.name+")";  // Update rows with fetched data
                 rows[1]["year"] = data.result.four_pillar.year_pillar.earthly_branch.element_name+"("+data.result.four_pillar.year_pillar.earthly_branch.name+")";  // Update rows with fetched data
-                rows_2[0]["element"] = data.result.life_stem.life_stem.life_stem;
+                rows_2[0]["element"] = data.result.life_stem.life_stem;
                 rows_2[0]["fovorable"] = data.result.favorable_unfavorable.fovorable_map.favorable_element;
                 rows_2[0]["unfovorable"] = data.result.favorable_unfavorable.unfovorable_map.unfavorable_element;
                 rows_2[0]["type"] = data.result.life_stem.type;
