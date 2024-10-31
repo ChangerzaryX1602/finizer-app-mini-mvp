@@ -21,7 +21,7 @@
                 const response = await axios.post("https://app.finizer.co/api/v1/auth/", {
                     code: code
                 });
-                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("token", response.result.token);
                 window.location.href = "/update";
             } catch (error) {
                 console.error('Error during authentication:', error);
