@@ -1,37 +1,48 @@
 <script>
   import axios from "axios";
   import { onMount } from "svelte";
+
   const login = () => {
     window.location.href =
       "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2006502412&redirect_uri=https://finizer-app-mini-mvp.vercel.app/login&state=random&scope=profile%20openid%20email&nonce=finizer";
   };
+
   function extractCodeFromURL() {
-        const currentURL = window.location.href;
-        const urlParams = new URLSearchParams(currentURL.split('?')[1]);
-        const code = urlParams.get('code');
-        return code;
+    const currentURL = window.location.href;
+    const urlParams = new URLSearchParams(currentURL.split('?')[1]);
+    const code = urlParams.get('code');
+    return code;
+  }
+
+  async function handleAuthentication() {
+    const code = extractCodeFromURL();
+    
+    // Redirect if token is already stored
+    if (localStorage.getItem("token")) {
+      window.location.href = "/update";
+      return;
     }
-    async function handleAuthentication() {
-        const code = extractCodeFromURL();
-        if(localStorage.getItem("token")){
-            window.location.href = "/update";
-        }
-        if (code) {
-            try {
-                const response = await axios.post("https://app.finizer.co/api/v1/auth/", {
-                    code: code
-                });
-                const data = response.json();
-                localStorage.setItem("token", data.result.token);
-                window.location.href = "/update";
-            } catch (error) {
-                console.error('Error during authentication:', error);
-                alert("Login failed!");
-            }
-        }
+
+    if (code) {
+      try {
+        const response = await axios.post("https://app.finizer.co/api/v1/auth/", {
+          code: code
+        });
+
+        // Access data directly from response
+        const data = response.data;
+        localStorage.setItem("token", data.result.token);
+        window.location.href = "/update";
+      } catch (error) {
+        console.error('Error during authentication:', error);
+        alert("Login failed!");
       }
-    onMount(()=>{handleAuthentication()});
+    }
+  }
+
+  onMount(() => { handleAuthentication(); });
 </script>
+
 
 <link
   rel="stylesheet"
