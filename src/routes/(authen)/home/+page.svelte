@@ -7,10 +7,7 @@
         { type:"earthly_branch",hour: "", day: "", month: "", year: "" }
     ];
     let rows_2 = [
-        {type:"hard_fovorable",element:"",fovorable:"",unfovorable:""},
-        {type:"hard_fovorable",element:"",fovorable:"",unfovorable:""},
-        {type:"soft_fovorable",element:"",fovorable:"",unfovorable:""},
-        {type:"soft_fovorable",element:"",fovorable:"",unfovorable:""},
+        {type:"",element:"",fovorable:"",unfovorable:""},
     ];
     // Function to fetch data with Authorization header
     const fetchBaziData = async () => {
@@ -39,21 +36,10 @@
                 rows[1]["day"] = data.result.four_pillar.day_pillar.earthly_branch.element_name+"("+data.result.four_pillar.day_pillar.earthly_branch.name+")";  // Update rows with fetched data
                 rows[1]["month"] = data.result.four_pillar.month_pillar.earthly_branch.element_name+"("+data.result.four_pillar.month_pillar.earthly_branch.name+")";  // Update rows with fetched data
                 rows[1]["year"] = data.result.four_pillar.year_pillar.earthly_branch.element_name+"("+data.result.four_pillar.year_pillar.earthly_branch.name+")";  // Update rows with fetched data
-                rows_2[0]["element"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[0].hard_element;
-                rows_2[0]["fovorable"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[0].favorable_element;
-                rows_2[0]["unfovorable"] = data.result.hard_favorable_unfavorable.hard_unfovorable_map[0].unfavorable_element;
-                rows_2[1]["element"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[1].hard_element;
-                rows_2[1]["fovorable"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[1].favorable_element;
-                rows_2[1]["unfovorable"] = data.result.hard_favorable_unfavorable.hard_unfovorable_map[1].unfavorable_element;
-                rows_2[1]["element"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[1].hard_element;
-                rows_2[1]["fovorable"] = data.result.hard_favorable_unfavorable.hard_fovorable_map[1].favorable_element;
-                rows_2[1]["unfovorable"] = data.result.hard_favorable_unfavorable.hard_unfovorable_map[1].unfavorable_element;
-                rows_2[2]["element"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[0].soft_element;
-                rows_2[2]["fovorable"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[0].favorable_element;
-                rows_2[2]["unfovorable"] = data.result.soft_favorable_unfavorable.soft_unfovorable_map[0].unfavorable_element;
-                rows_2[3]["element"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[1].soft_element;
-                rows_2[3]["fovorable"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[1].favorable_element;
-                rows_2[3]["unfovorable"] = data.result.soft_favorable_unfavorable.soft_unfovorable_map[1].unfavorable_element;
+                rows_2[0]["element"] = data.result.life_stem.life_stem.life_stem;
+                rows_2[0]["fovorable"] = data.result.favorable_unfavorable.fovorable_map.favorable_element;
+                rows_2[0]["unfovorable"] = data.result.favorable_unfavorable.unfovorable_map.unfavorable_element;
+                rows_2[0]["type"] = data.result.life_stem.type;
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -106,10 +92,10 @@
     <br>
     <thead>
         <tr>
-            <th>Element</th>
+            <th>Life Stem</th>
             <th>Favorable</th>
             <th>Unfavorable</th>
-            <th>Life_element</th>
+            <th>Type</th>
         </tr>
     </thead>
     <tbody>
