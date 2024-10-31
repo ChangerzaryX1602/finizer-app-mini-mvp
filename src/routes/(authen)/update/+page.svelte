@@ -77,7 +77,9 @@ import { goto } from '$app/navigation'
     <label>
         Birthdate:
         <input type="datetime" bind:value={birthdate} required />
+        <br>
         Format: YYYY-MM-DDTHH:MM:SS
+        If you forgot the time, please check the box below and Enter format YYYY-MM-DDT.
     </label>
     <label>
         <input type="checkbox" bind:checked={forgotTime} />
