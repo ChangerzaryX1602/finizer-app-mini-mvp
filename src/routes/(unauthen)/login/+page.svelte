@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   const login = () => {
     window.location.href =
-      "https://oauth.kku.ac.th/authorize?response_type=code&client_id=cea7ad01a1fdb997&redirect_uri=http://localhost:5173/login";
+      "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=2006502412&redirect_uri=https://finizer-app-mini-mvp.vercel.app/login&state=random&scope=profile%20openid%20email&nonce=finizer";
   };
   function extractCodeFromURL() {
         const currentURL = window.location.href;
@@ -18,7 +18,7 @@
         }
         if (code) {
             try {
-                const response = await axios.post("http://localhost:8080/api/v1/auth/login", {
+                const response = await axios.post("https://app.finizer.co/api/v1/auth/", {
                     code: code
                 });
                 localStorage.setItem("token", response.data.token);
