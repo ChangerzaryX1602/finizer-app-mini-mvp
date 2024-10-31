@@ -30,8 +30,6 @@
                     'Authorization': `Bearer ${token}`
                 }
             });
-
-            if (response.ok) {
                 const data = await response.json();
                 rows[0]["hour"] = data.result.four_pillar.hour_pillar.heavenly_stem.name;  // Update rows with fetched data
                 rows[0]["day"] = data.result.four_pillar.day_pillar.heavenly_stem.name;  // Update rows with fetched data
@@ -56,9 +54,6 @@
                 rows_2[3]["element"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[1].soft_element;
                 rows_2[3]["fovorable"] = data.result.soft_favorable_unfavorable.soft_fovorable_map[1].favorable_element;
                 rows_2[3]["unfovorable"] = data.result.soft_favorable_unfavorable.soft_unfovorable_map[1].unfavorable_element;
-            } else {
-                console.error("Failed to fetch data:", response.status);
-            }
         } catch (error) {
             console.error("Error fetching data:", error);
         }
