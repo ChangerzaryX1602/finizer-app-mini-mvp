@@ -18,12 +18,7 @@
     }
 }
   onMount(() => {
-  if(localStorage.getItem("token")){
-    goto("/update");
-  }else{
-    alert("Please login again.")
-    goto("/login");
-  }
+
   });
 </script>
 
